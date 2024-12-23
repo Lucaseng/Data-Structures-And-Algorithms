@@ -15,4 +15,18 @@ public class Node<T> {
         this.right = right;
     }
 
+    public Node<T> dfs(Node<T> root, T val) {
+        if (root == null) {
+            return null;
+        }
+        if (root.val == val) {
+            return root;
+        }
+        Node<T> left = dfs(root.left, val);
+        if (left != null) {
+            return left;
+        }
+        return dfs(root.right, val); // Return right node regardless if it is null or not
+    }
+
 }

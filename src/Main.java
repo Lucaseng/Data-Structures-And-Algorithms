@@ -20,10 +20,17 @@ public class Main {
         //var stringTraversals = new Traversals<String>();
         System.out.println("Preorder, inorder, and postorder traversals:");
         integerTraversals.preorderTraversal(root);
-        System.out.println("");
+        System.out.println();
         integerTraversals.inorderTraversal(root);
-        System.out.println("");
+        System.out.println();
         integerTraversals.postorderTraversal(root);
+        System.out.println();
+        System.out.println("PERFORM DFS");
+        if (root != null) {
+            Node<Integer> result = root.dfs(root, 3);
+            System.out.println(result == null ? "Value was not found" : result);
+        }
+
     }
 
     public static <T> Node<T> buildTree(Iterator<String> iter, Function<String, T> f) {
@@ -31,7 +38,7 @@ public class Main {
         if (val.equals("x")) return null;
         Node<T> left = buildTree(iter, f);
         Node<T> right = buildTree(iter, f);
-        return new Node<T>(f.apply(val), left, right);
+        return new Node<>(f.apply(val), left, right);
     }
 
     public static List<String> splitWords(String s) {
