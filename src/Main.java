@@ -30,7 +30,10 @@ public class Main {
             Node<Integer> result = root.dfs(root, 3);
             System.out.println(result == null ? "Value was not found" : result);
         }
-
+        System.out.println("PERFORM MAX DEPTH");
+        System.out.println(root.maxTreeDepth(root));
+        System.out.println("PERFORM VISIBLE TREE NODE");
+        System.out.println(root.visibleTreeNode(root));
     }
 
     public static <T> Node<T> buildTree(Iterator<String> iter, Function<String, T> f) {
